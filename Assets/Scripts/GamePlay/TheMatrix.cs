@@ -7,7 +7,9 @@ public class TheMatrix : IGamePlay {
 	public GameObject matrixGO;
 
 
-	private float health;
+
+	public float health;
+
 
 
 

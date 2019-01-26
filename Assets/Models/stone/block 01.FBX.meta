@@ -1,0 +1,161 @@
+fileFormatVersion: 2
+guid: 6bc3a0a7f17ab634cbce4cd3b261f7b0
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Obj3d66-593527-302-792
+    100004: Obj3d66-593527-303-396
+    100006: Obj3d66-593527-304-739
+    100008: Obj3d66-593527-305-864
+    100010: Obj3d66-593527-306-642
+    100012: Obj3d66-593527-307-629
+    100014: Obj3d66-593527-308-108
+    100016: Obj3d66-593527-309-301
+    100018: Obj3d66-593527-310-186
+    100020: Obj3d66-593527-311-868
+    100022: Obj3d66-593527-312-783
+    100024: Obj3d66-593527-313-18
+    100026: Obj3d66-593527-314-857
+    100028: Obj3d66-593527-315-16
+    400000: //RootNode
+    400002: Obj3d66-593527-302-792
+    400004: Obj3d66-593527-303-396
+    400006: Obj3d66-593527-304-739
+    400008: Obj3d66-593527-305-864
+    400010: Obj3d66-593527-306-642
+    400012: Obj3d66-593527-307-629
+    400014: Obj3d66-593527-308-108
+    400016: Obj3d66-593527-309-301
+    400018: Obj3d66-593527-310-186
+    400020: Obj3d66-593527-311-868
+    400022: Obj3d66-593527-312-783
+    400024: Obj3d66-593527-313-18
+    400026: Obj3d66-593527-314-857
+    400028: Obj3d66-593527-315-16
+    2100000: No Name
+    2300000: Obj3d66-593527-302-792
+    2300002: Obj3d66-593527-303-396
+    2300004: Obj3d66-593527-304-739
+    2300006: Obj3d66-593527-305-864
+    2300008: Obj3d66-593527-306-642
+    2300010: Obj3d66-593527-307-629
+    2300012: Obj3d66-593527-308-108
+    2300014: Obj3d66-593527-309-301
+    2300016: Obj3d66-593527-310-186
+    2300018: Obj3d66-593527-311-868
+    2300020: Obj3d66-593527-312-783
+    2300022: Obj3d66-593527-313-18
+    2300024: Obj3d66-593527-314-857
+    2300026: Obj3d66-593527-315-16
+    3300000: Obj3d66-593527-302-792
+    3300002: Obj3d66-593527-303-396
+    3300004: Obj3d66-593527-304-739
+    3300006: Obj3d66-593527-305-864
+    3300008: Obj3d66-593527-306-642
+    3300010: Obj3d66-593527-307-629
+    3300012: Obj3d66-593527-308-108
+    3300014: Obj3d66-593527-309-301
+    3300016: Obj3d66-593527-310-186
+    3300018: Obj3d66-593527-311-868
+    3300020: Obj3d66-593527-312-783
+    3300022: Obj3d66-593527-313-18
+    3300024: Obj3d66-593527-314-857
+    3300026: Obj3d66-593527-315-16
+    4300000: Obj3d66-593527-302-792
+    4300002: Obj3d66-593527-303-396
+    4300004: Obj3d66-593527-304-739
+    4300006: Obj3d66-593527-305-864
+    4300008: Obj3d66-593527-306-642
+    4300010: Obj3d66-593527-307-629
+    4300012: Obj3d66-593527-308-108
+    4300014: Obj3d66-593527-309-301
+    4300016: Obj3d66-593527-310-186
+    4300018: Obj3d66-593527-311-868
+    4300020: Obj3d66-593527-312-783
+    4300022: Obj3d66-593527-313-18
+    4300024: Obj3d66-593527-314-857
+    4300026: Obj3d66-593527-315-16
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

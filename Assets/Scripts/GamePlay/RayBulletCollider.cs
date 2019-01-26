@@ -14,8 +14,8 @@ namespace GamePlay
         {
             this.bullet = bullet;
         }
-
-        public void SetLength(float length,LineRenderer lineRenderer)
+		
+        public void SetLength(float length)
         {
             BoxCollider boxCollider = GetComponent<BoxCollider>();
             boxCollider.size = new Vector3(length, 1, 1);

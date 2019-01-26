@@ -4,6 +4,8 @@ using UnityEngine;
 using GamePlay;
 public class SceneLoader : MonoBehaviour {
 
+    public float timer;
+
 	// Use this for initialization
 	void Start () {
 
@@ -32,6 +34,6 @@ public class SceneLoader : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        timer -= Time.deltaTime;
 	}
 }
