@@ -35,7 +35,19 @@ namespace GamePlay
 			
 		}
 
+        public void InitPlayer()
+        {
+            GameObject player1Obj = GameObject.Find("Player1");
+            GameObject player2Obj = GameObject.Find("Player2");
+            GameManager.gamePlay.playerManager.player1 = new GamePlayer(PlayerType.player1, player1Obj);
+            GameManager.gamePlay.playerManager.player2 = new GamePlayer(PlayerType.player2, player2Obj);
+        }
 
+        public void InitRayline()
+        {
+            GameObject rayLineObj = GameObject.Find("RayLine");
+            GameManager.gamePlay.rayLine = new RayLine(rayLineObj);
+        }
 
 
         private GameObject LoadObject(string path)
