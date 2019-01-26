@@ -12,30 +12,25 @@ namespace GamePlay
 
     public class GamePlayer : IGamePlay
     {
-        private Transform transform;
-        #region variable
-        [SerializeField]
-        private int energy;
-        public PlayerType playerType;
-        [Range(0,20)]
-        public float speed;
-        [Range(0,60)]
-        public float rotSpeed;
 
-        /// <summary>
-        /// 能量
-        /// </summary>
-        public int Energy
+        public GamePlayer(PlayerType playerType, GameObject obj)
         {
-            get
+            this.playerType = playerType;
+            transform = obj.transform;
+            if (obj.GetComponent<GamePlayerData>() != null)
             {
-                return energy;
+                data = obj.GetComponent<GamePlayerData>();
             }
-            set
+            else
             {
-                energy = value;
+                data = obj.AddComponent<GamePlayerData>();
             }
         }
+
+        #region variable
+        public Transform transform;
+        public PlayerType playerType;
+        GamePlayerData data;
         #endregion
 
         #region Method
@@ -49,19 +44,10 @@ namespace GamePlay
         }
 
         /// <summary>
-        /// 是否在受到伤害
+        /// 是否在基地
         /// </summary>
         /// <returns></returns>
-        public bool OnHurt()
-        {
-            return default(bool);
-        }
-
-        /// <summary>
-        /// 是否在基地恢复能量
-        /// </summary>
-        /// <returns></returns>
-        public bool OnRecover()
+        public bool InMatrix()
         {
             return default(bool);
         }
@@ -85,12 +71,12 @@ namespace GamePlay
                     break;
             }
 
-            if (currentX != 0 || currentZ != 0)            
-                _speed = speed;         
+            if (currentX != 0 || currentZ != 0)
+                _speed = data.speed;
             else
+                // _speed = Mathf.Lerp(_speed,0,0.5f);
                 _speed = 0;
-
-            
+           
             Vector3 pos = transform.position;
             Vector3 rot = transform.rotation.eulerAngles;
             transform.rotation = Quaternion.Euler(rot.x, ClampAngle(rot.y, 0, 360), rot.z);
@@ -99,41 +85,41 @@ namespace GamePlay
             {
                 if(currentZ> 0)
                 {
-                    transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(new Vector3(0, 45, 0)), Time.deltaTime * rotSpeed);
+                    transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(new Vector3(0, 45, 0)), Time.deltaTime * data.rotSpeed);
                 }
                 else if(currentZ == 0)
                 {
-                    transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(new Vector3(0, 90, 0)), Time.deltaTime * rotSpeed);
+                    transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(new Vector3(0, 90, 0)), Time.deltaTime * data.rotSpeed);
                 }
                 else if (currentZ < 0)
                 {
-                    transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(new Vector3(0, 135, 0)), Time.deltaTime * rotSpeed);
+                    transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(new Vector3(0, 135, 0)), Time.deltaTime * data.rotSpeed);
                 }
             }
             else if(currentX == 0)
             {
                 if (currentZ > 0)
                 {
-                    transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(new Vector3(0, 0, 0)), Time.deltaTime * rotSpeed);
+                    transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(new Vector3(0, 0, 0)), Time.deltaTime * data.rotSpeed);
                 }
                 else if (currentZ < 0)
                 {
-                    transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(new Vector3(0, 180, 0)), Time.deltaTime * rotSpeed);
+                    transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(new Vector3(0, 180, 0)), Time.deltaTime * data.rotSpeed);
                 }
             }
             else if(currentX < 0)
             {
                 if (currentZ > 0)
                 {
-                    transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(new Vector3(0, 315, 0)), Time.deltaTime * rotSpeed);
+                    transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(new Vector3(0, 315, 0)), Time.deltaTime * data.rotSpeed);
                 }
                 else if (currentZ == 0)
                 {
-                    transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(new Vector3(0,270,0)), Time.deltaTime * rotSpeed);
+                    transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(new Vector3(0,270,0)), Time.deltaTime * data.rotSpeed);
                 }
                 else if (currentZ < 0)
                 {
-                    transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(new Vector3(0, 225, 0)), Time.deltaTime * rotSpeed);
+                    transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(new Vector3(0, 225, 0)), Time.deltaTime * data.rotSpeed);
                 }
             }
             transform.Translate(Vector3.forward * _speed * Time.deltaTime);
@@ -144,30 +130,6 @@ namespace GamePlay
             if (angle < -360) angle += 360;
             if (angle > 360) angle -= 360;
             return Mathf.Clamp(angle, min, max);
-        }
-
-        /// <summary>
-        /// 发射射线
-        /// </summary>
-        public void ShootRay()
-        {
-
-        }
-
-        /// <summary>
-        /// 接收射线
-        /// </summary>
-        public void ReceiveRay()
-        {
-
-        }
-
-        /// <summary>
-        /// 射线断裂
-        /// </summary>
-        public void BreakRay()
-        {
-
         }
 
         /// <summary>
