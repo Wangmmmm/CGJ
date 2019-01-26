@@ -14,16 +14,15 @@ namespace GamePlay
         void OnCollisionEnter(Collision other)
         {
          
-            RayLineData rayLineData = other.gameObject.GetComponent<RayLineData>();
-            if (rayLineData != null)
-            {
-				rayLineData.rayLine.GetDamageFromBullet(bullet.damage);
-                return;
-            }
-            GamePlayerData gamePlayerData = other.gameObject.GetComponent<GamePlayerData>();
+            GamePlayerData gamePlayerData =  other.gameObject.GetComponent<GamePlayerData>();
             if(gamePlayerData!=null)
             {
-                gamePlayerData.gamePlayer.rayLine.GetDamageFromBullet(bullet.damage);
+                gamePlayerData.
+                gamePlayer.
+                rayLine.
+                GetDamageFromBullet(
+                    bullet
+                    );
                 return;
             }
             Debug.Log(other.gameObject.name);
@@ -32,6 +31,20 @@ namespace GamePlay
             {
                 matrixCollider.matrix.Hitted(this.bullet);
             }
+        }
+        /// <summary>
+        /// OnTriggerEnter is called when the Collider other enters the trigger.
+        /// </summary>
+        /// <param name="other">The other Collider involved in this collision.</param>
+        void OnTriggerEnter(Collider other)
+        {
+            RayLineData rayLineData = other.gameObject.GetComponent<RayLineData>();
+            if (rayLineData != null)
+            {
+				rayLineData.rayLine.GetDamageFromBullet(bullet);
+                return;
+            }
+         
         }
     }
 }

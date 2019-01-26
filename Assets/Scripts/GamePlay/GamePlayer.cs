@@ -29,7 +29,7 @@ namespace GamePlay
         }
 
         #region variable
-        public RayLine rayLine = GameManager.gamePlay.rayLine;
+        public RayLine rayLine {get{return GameManager.gamePlay.rayLine; }} 
         public Transform transform;
         public PlayerType playerType;
         public bool inMatrix;

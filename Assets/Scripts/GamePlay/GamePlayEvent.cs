@@ -16,7 +16,7 @@ public class EventSystem  {
 	private Dictionary<EventEnum,List<EventObserver>> events = new Dictionary<EventEnum,List<EventObserver>>();
 	public void RegisterEvent(EventEnum eventEnum,EventObserver observer)
 	{
-		if(events[eventEnum]==null)
+		if(!events.ContainsKey(eventEnum))
 		{
 			List<EventObserver> list =new List<EventObserver>{observer};
 			events.Add(eventEnum,list);
@@ -36,7 +36,7 @@ public class EventSystem  {
 
 	public void UnRegisterEvent(EventEnum eventEnum,EventObserver observer)
 	{
-		if(events[eventEnum]==null)
+		if(!events.ContainsKey(eventEnum))
 			return;
 	
 
@@ -58,9 +58,10 @@ public class EventSystem  {
 	}
 	public void Raise(EventData eventData)
 	{
-		if(events[eventData.eventType]==null)
+		if(!events.ContainsKey(eventData.eventType))
 		{
-			Debug.Log("no listener");
+			//Debug.Log("no listener");
+			return;
 		}
 		foreach(EventObserver observer in events[eventData.eventType] )	
 		{

@@ -60,6 +60,9 @@ namespace GamePlay
         {
             GameObject rayLineObj = GameObject.Find("RayLine");
             GameManager.gamePlay.rayLine = new RayLine(rayLineObj);
+
+            // GameManager.gamePlay.playerManager.player1.rayLine=GameManager.gamePlay.rayLine ;
+//GameManager.gamePlay.playerManager.player2.rayLine=GameManager.gamePlay.rayLine ;
         }
 
 

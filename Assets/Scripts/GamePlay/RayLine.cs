@@ -35,8 +35,8 @@ namespace GamePlay
         public RayLineCollider collider;
         public Transform transform;
         private bool isLeaving;
-        private GamePlayer player1 = GameManager.gamePlay.playerManager.player1;
-        private GamePlayer player2 = GameManager.gamePlay.playerManager.player2;
+        private GamePlayer player1 {get{return GameManager.gamePlay.playerManager.player1;}} 
+        private GamePlayer player2 {get{return GameManager.gamePlay.playerManager.player2;}} 
         public float Length
         {
             get
@@ -70,9 +70,10 @@ namespace GamePlay
                 currentEnergy = data.MaxEnergy;
         }
 
-        public bool GetDamageFromBullet(float damage)
+        public bool GetDamageFromBullet(Bullet bullet)
         {
-            currentEnergy -= damage;
+            currentEnergy -= bullet.damage;
+            bullet.Destroy();
             return currentEnergy > 0;
         }
 

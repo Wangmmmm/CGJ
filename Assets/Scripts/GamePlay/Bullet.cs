@@ -52,7 +52,7 @@ public class NormalBulletQueueGamePlay:IGamePlay{
 
 
 			currentTime=-1;
-		}
+		} 
 	}
 	public void Destroy()
 	{
