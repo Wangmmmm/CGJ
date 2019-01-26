@@ -19,10 +19,20 @@ namespace GamePlay
             }
             currentEnergy = data.MaxEnergy;
             data.rayLine = this;
+            if (obj.GetComponent<RayLineCollider>() != null)
+            {
+                collider = obj.GetComponent<RayLineCollider>();
+            }
+            else
+            {
+                collider = obj.AddComponent<RayLineCollider>();
+            }
+            collider.rayLine = this;
         }
 
         public float currentEnergy;
         public RayLineData data;
+        public RayLineCollider collider;
         public Transform transform;
         private GamePlayer player1 = GameManager.gamePlay.playerManager.player1;
         private GamePlayer player2 = GameManager.gamePlay.playerManager.player2;
@@ -40,18 +50,23 @@ namespace GamePlay
                 return (player1.transform.position + player2.transform.position) / 2;
             }
         }
-
-        public void OnRecover()
+        public Vector3 Det
         {
-            if (player1.inMatrix && player2.inMatrix)
+            get
             {
-                if (currentEnergy < data.MaxEnergy)
-                {
-                    currentEnergy += data.RecoverEnergySpeed * Time.deltaTime;
-                }
-                else
-                    currentEnergy = data.MaxEnergy;
+                return player1.transform.position - player2.transform.position;
+
             }
+        }
+
+        public void RecoverEnergy()
+        {
+            if (currentEnergy < data.MaxEnergy)
+            {
+                currentEnergy += data.RecoverEnergySpeed * Time.deltaTime;
+            }
+            else
+                currentEnergy = data.MaxEnergy;
         }
 
         public bool GetDamageFromBullet(float damage)
@@ -81,21 +96,54 @@ namespace GamePlay
                 return energy;
         }
 
+
+        private void SetEnergy()
+        {
+            if(player1.inMatrix && player2.inMatrix)
+            {
+                RecoverEnergy();
+            }
+            else if(!player1.inMatrix && !player2.inMatrix)
+            {
+                GetDamageFromLength();
+            }
+            else
+            {
+                currentEnergy = 0;
+            }
+        }
+
         private void SetLineRenderer()
         {
             var lineRenderer = transform.GetComponent<LineRenderer>();
-            Vector3[] points = new Vector3[2]
-           {
+            if (currentEnergy > 0 && !player1.inMatrix && !player2.inMatrix)
+            {           
+                Vector3[] points = new Vector3[2]
+               {
                 player1.transform.position,
                 player2.transform.position
-           };
-            lineRenderer.SetPositions(points);
+               };
+                lineRenderer.SetPositions(points);
+
+            }
+            else
+            {
+                lineRenderer.enabled = false;
+            }
         }
 
         private void SetCollider()
         {
-            var collider = transform.GetComponent<Collider>();
-            //collider.s
+            var collider = transform.GetComponent<BoxCollider>();
+            if (currentEnergy > 0 && !player1.inMatrix && !player2.inMatrix)
+            {
+                collider.enabled = true;
+                collider.size = new Vector3(Length, 1, 1);
+            }
+            else
+            {
+                collider.enabled = false;
+            }
         }
 
         void IGamePlay.Init()
@@ -105,17 +153,12 @@ namespace GamePlay
 
         void IGamePlay.Update()
         {
+            SetEnergy();
             SetLineRenderer();
+            SetCollider();
             currentEnergy = ClampEnergy(currentEnergy, 0, data.MaxEnergy);         
             transform.position = Pos;
-            if(GetDamageFromLength())
-            {
-
-            }
-            else
-            {
-
-            }
+            transform.right = Det;           
         }
 
         
