@@ -32,7 +32,7 @@ namespace GamePlay
 
 		public void InitBullet()
 		{
-
+			
 		}
 
 

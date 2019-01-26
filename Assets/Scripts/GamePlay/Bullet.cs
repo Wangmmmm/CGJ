@@ -9,6 +9,14 @@ public enum BulletType
 	Normal,
 
 }
+
+public class BulletQuene
+{
+	
+}
+
+
+
 public class Bullet:IGamePlay  {
 	public int damage;
 	private GameObject BulletObject;

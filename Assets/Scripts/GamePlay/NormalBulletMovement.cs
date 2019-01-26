@@ -18,14 +18,16 @@ public class NormalBulletMovement : MonoBehaviour {
 		this.speed=speed;
 
 
-		transform.position=beginPos;
-		transform.eulerAngles=beginDir;
+		transform.localPosition=beginPos;
+		
+		transform.up= beginDir;
+		//transform.eulerAngles=beginDir;
 	}
 	/// <summary>
 	/// Update is called every frame, if the MonoBehaviour is enabled.
 	/// </summary>
 	void Update()
 	{
-		
+		transform.position=Vector3.Lerp(transform.position,transform.position+moveDir*speed,Time.deltaTime);
 	}
 }

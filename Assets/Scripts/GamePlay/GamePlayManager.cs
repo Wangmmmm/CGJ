@@ -8,11 +8,6 @@ public class GamePlayManager : MonoBehaviour {
 	
 	GamePlayBuild gamePlayBuild;
 
-
-
-
-
-
 	BulletManager bulletManager;
 
 	void Start () {
