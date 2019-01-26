@@ -76,7 +76,7 @@ public class Bullet:IGamePlay  {
 	}
 
 	
-	public void Destroy()
+	public virtual void Destroy()
 	{
 		
 	}
@@ -93,7 +93,13 @@ public class NormalBullet:Bullet
 	}
 	public override void Update()
 	{
-		Debug.Log("test");
+	//	Debug.Log("test");
+	}
+	
+	public override void Destroy()
+	{
+		GameObject.Destroy(this.BulletObject);
+		GameManager.gamePlay.RemoveIGamePlayList(this);
 	}
 }
 

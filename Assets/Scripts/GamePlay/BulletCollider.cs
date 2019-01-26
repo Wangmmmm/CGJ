@@ -6,13 +6,14 @@ namespace GamePlay
 {
     public class BulletCollider : MonoBehaviour
     {
-		private Bullet bullet;
+		public Bullet bullet;
 		public void BindObj(Bullet bul)
 		{
-			this.bullet=bul;
+			this.bullet=bul;                                                                                                                                                                                                                                       
 		}
         void OnCollisionEnter(Collision other)
         {
+         
             RayLineData rayLineData = other.gameObject.GetComponent<RayLineData>();
             if (rayLineData != null)
             {
@@ -23,8 +24,14 @@ namespace GamePlay
             if(gamePlayerData!=null)
             {
                 gamePlayerData.gamePlayer.rayLine.GetDamageFromBullet(bullet.damage);
+                return;
             }
-
+            Debug.Log(other.gameObject.name);
+            MatrixCollider matrixCollider = other.gameObject.GetComponentInChildren<MatrixCollider>();
+            if(matrixCollider!=null)
+            {
+                matrixCollider.matrix.Hitted(this.bullet);
+            }
         }
     }
 }

@@ -30,9 +30,18 @@ public class TheMatrix : IGamePlay {
 	}
 
 
-	public void Hitted()
+	public void Hitted(Bullet bullet)
 	{
-
+		health-=bullet.damage;
+		Debug.Log("基地被撞擊");
+		bullet.Destroy();                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+		if(health<=0)
+		{
+			
+			Debug.Log("基地被毀滅");
+		}
+		
+		
 	}
 
 

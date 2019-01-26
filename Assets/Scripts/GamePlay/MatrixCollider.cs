@@ -4,7 +4,7 @@ using UnityEngine;
 using GamePlay;
 public class MatrixCollider : MonoBehaviour {
 
-	private TheMatrix matrix;
+	public TheMatrix matrix;
 
 	public void BindObject(TheMatrix matrix)
 	{
@@ -13,6 +13,8 @@ public class MatrixCollider : MonoBehaviour {
  
 	void OnTriggerEnter(Collider other)
 	{
+
+         // Debug.Log("trige");
         if (other.GetComponent<GamePlayerData>() != null)
         {
             other.GetComponent<GamePlayerData>().gamePlayer.inMatrix = true;
@@ -31,6 +33,9 @@ public class MatrixCollider : MonoBehaviour {
         }
     }
 
+
+
+
     /// <summary>
     /// OnCollisionEnter is called when this collider/rigidbody has begun
     /// touching another rigidbody/collider.
@@ -38,7 +43,7 @@ public class MatrixCollider : MonoBehaviour {
     /// <param name="other">The Collision data associated with this collision.</param>
     void OnCollisionEnter(Collision other)
     {
-        
+   
     }
     /// <summary>
     /// OnCollisionExit is called when this collider/rigidbody has
