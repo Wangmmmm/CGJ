@@ -72,7 +72,7 @@ namespace GamePlay
 
         public bool GetDamageFromBullet(Bullet bullet)
         {
-            currentEnergy -= bullet.damage;
+            currentEnergy -= bullet.energyConsume;
             bullet.Destroy();
             return currentEnergy > 0;
         }

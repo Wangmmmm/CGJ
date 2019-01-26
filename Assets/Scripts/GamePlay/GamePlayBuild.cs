@@ -44,7 +44,7 @@ namespace GamePlay
 		}
 
 		private void InitBullet()
-		{
+		{                        
 			
 		}
 

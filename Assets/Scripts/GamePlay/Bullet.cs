@@ -40,7 +40,7 @@ public class NormalBulletQueueGamePlay:IGamePlay{
 
 			foreach(var BulletMovement in obj.transform.GetComponentsInChildren<NormalBulletMovement>())
 			{
-				Bullet bullet = new NormalBullet();
+				NormalBullet bullet = new NormalBullet();
 				//bullets.Add(bullet);
 				bullet.bulletType=BulletType.Normal;
 				bullet.BulletObject = BulletMovement.gameObject;
@@ -74,10 +74,11 @@ public class NormalBulletQueueGamePlay:IGamePlay{
 
 public class Bullet:IGamePlay  {
 	public int damage;
+	public int energyConsume;
 	public GameObject BulletObject;
 	
 
-	public NormalBulletQueueGamePlay normalBulletQueueGamePlay ;
+
 	public BulletType bulletType;
 	public virtual void Init(){
 
@@ -98,9 +99,12 @@ public class Bullet:IGamePlay  {
 
 public class NormalBullet:Bullet
 {
+
+	public NormalBulletQueueGamePlay normalBulletQueueGamePlay ;
 	public override void Init()
 	{
-		damage=10;
+		damage=120;
+		energyConsume=120;
 		var collider =BulletObject.GetComponentInChildren<BulletCollider>();
 		collider.BindObj(this);
 	}
@@ -114,6 +118,32 @@ public class NormalBullet:Bullet
 		GameObject.Destroy(this.BulletObject);
 		GameManager.gamePlay.RemoveIGamePlayList(this);
 		normalBulletQueueGamePlay.OnBulletDestroy();
+	}
+}
+
+public class RayBullet:Bullet
+{
+
+	
+
+
+	public override void Init()
+	{
+		damage=300;
+		energyConsume=80;
+		var collider =BulletObject.GetComponentInChildren<BulletCollider>();
+		collider.BindObj(this);
+	}
+	public override void Update()
+	{
+	//	Debug.Log("test");
+	}
+	
+	public override void Destroy()
+	{
+		GameObject.Destroy(this.BulletObject);
+		GameManager.gamePlay.RemoveIGamePlayList(this);
+	
 	}
 }
 

@@ -21,6 +21,7 @@ public class SceneLoader : MonoBehaviour {
 
         GameManager.gamePlay.gamePlayBuild.InitPlayer();
         GameManager.gamePlay.gamePlayBuild.InitRayline();
+
         GameManager.gamePlay.AddIGamePlayList(GameManager.gamePlay.playerManager.player1);
         GameManager.gamePlay.AddIGamePlayList(GameManager.gamePlay.playerManager.player2);
         GameManager.gamePlay.AddIGamePlayList(GameManager.gamePlay.rayLine);

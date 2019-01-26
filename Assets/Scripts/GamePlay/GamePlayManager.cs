@@ -35,7 +35,16 @@ namespace GamePlay
             }
             gamePlayDeleteBuffer.Add(igamePlay);
         }
-
+        public List<T> GetIGamePlay<T>()where T:class,IGamePlay
+        {
+            List<T> list =new List<T>();
+            foreach(IGamePlay gameplay in gamePlayList)
+            {
+                T gameplayObj= gameplay as T;
+                list.Add(gameplayObj);
+            }
+            return list;
+        }
         void Awake()
         {
             gamePlayBuild = new GamePlayBuild();
