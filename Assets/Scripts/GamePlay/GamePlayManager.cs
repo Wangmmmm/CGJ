@@ -7,7 +7,7 @@ namespace GamePlay
     {
 
         // Use this for initialization
-
+        public LoadEffect loadEffect;
         public GamePlayBuild gamePlayBuild;
         public PlayerManager playerManager;
         BulletManager bulletManager;
@@ -58,6 +58,7 @@ namespace GamePlay
             gamePlayBuild = new GamePlayBuild();
             bulletManager = new BulletManager();
             playerManager = new PlayerManager();
+            loadEffect = new LoadEffect();
             gamePlayBuild.Init();
         }
 
