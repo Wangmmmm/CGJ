@@ -14,16 +14,16 @@ public class SceneLoader : MonoBehaviour {
         gamePlay.
         gamePlayBuild.
         BuildMatrix();
-        GameManager.gamePlay.gamePlayBuild.BuildBullet();
+        //GameManager.gamePlay.gamePlayBuild.BuildBullet();
 
 
 
 
-        // GameManager.gamePlay.gamePlayBuild.InitPlayer();
-        // GameManager.gamePlay.gamePlayBuild.InitRayline();
-        // GameManager.gamePlay.AddIGamePlayList(GameManager.gamePlay.playerManager.player1);
-        // GameManager.gamePlay.AddIGamePlayList(GameManager.gamePlay.playerManager.player2);
-        // GameManager.gamePlay.AddIGamePlayList(GameManager.gamePlay.rayLine);
+        GameManager.gamePlay.gamePlayBuild.InitPlayer();
+        GameManager.gamePlay.gamePlayBuild.InitRayline();
+        GameManager.gamePlay.AddIGamePlayList(GameManager.gamePlay.playerManager.player1);
+        GameManager.gamePlay.AddIGamePlayList(GameManager.gamePlay.playerManager.player2);
+        GameManager.gamePlay.AddIGamePlayList(GameManager.gamePlay.rayLine);
 
 
     }
