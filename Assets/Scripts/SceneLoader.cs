@@ -6,7 +6,12 @@ public class SceneLoader : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		//GameManager.gamePlay.bu
+
+		GameManager.
+		gamePlay.
+		gamePlayBuild.
+		BuildMatrix();
+		GameManager.gamePlay.gamePlayBuild.BuildBullet();
 	}
 	
 	// Update is called once per frame

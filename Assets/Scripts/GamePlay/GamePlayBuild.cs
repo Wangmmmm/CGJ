@@ -26,11 +26,17 @@ namespace GamePlay
 		public void BuildBullet()
 		{
 			InitBullet();
+            GameObject bulletParent=GameObject.Find("Bullets");
+            foreach(var movement in bulletParent.transform.GetComponentsInChildren<NormalBulletQueue>())
+            {
+                movement.gameObject.SetActive(true);
+            }
+
 
 
 		}
 
-		public void InitBullet()
+		private void InitBullet()
 		{
 			
 		}

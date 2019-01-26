@@ -8,11 +8,11 @@ namespace GamePlay
 
         // Use this for initialization
 
-        GamePlayBuild gamePlayBuild;
+        public GamePlayBuild gamePlayBuild;
         public PlayerManager playerManager;
         BulletManager bulletManager;
         public RayLine rayLine;
-        void Start()
+        void Awake()
         {
             gamePlayBuild = new GamePlayBuild();
             bulletManager = new BulletManager();

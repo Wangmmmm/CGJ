@@ -5,5 +5,6 @@ using System;
 using GamePlay;
 public class BulletManager {
 	public List<Bullet> bullets =new List<Bullet>();
+	
 
 }
