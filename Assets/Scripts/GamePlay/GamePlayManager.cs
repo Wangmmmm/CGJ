@@ -11,10 +11,13 @@ public class GamePlayManager : MonoBehaviour {
 
 
 
-	
+
+
+	BulletManager bulletManager;
 
 	void Start () {
 		gamePlayBuild = new GamePlayBuild();
+		bulletManager = new BulletManager();
 		gamePlayBuild.Init();
 	}
 	

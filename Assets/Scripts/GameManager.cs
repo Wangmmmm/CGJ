@@ -23,9 +23,11 @@ public class GameManager : MonoBehaviour {
 
 	public static GamePlayManager gamePlay;
 
+	public static EventSystem eventSystem;
 	void Awake () {
 		instance=GetComponent<GameManager>();
 		gamePlay=GetComponent<GamePlayManager>();
+		eventSystem= new EventSystem();
 	}
 	
 
