@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 namespace GamePlay
 {
     public class GamePlayBuild
@@ -13,17 +14,26 @@ namespace GamePlay
 
         public void Init()
         {
-            MatrixPrefab = LoadObject(MyConst.MatrixPath);
+            //MatrixPrefab = LoadObject(MyConst.MatrixPath);
         }
         public void BuildMatrix()
         {
+			GameObject matrixObj = GameObject.Find("Matrix");
+			TheMatrix matrix = new TheMatrix(matrixObj);
 
         }
 
+		public void BuildBullet()
+		{
+			InitBullet();
 
-		
 
+		}
 
+		public void InitBullet()
+		{
+
+		}
 
 
 

@@ -8,5 +8,7 @@ public static class MyConst {
 
 	public const string MatrixPath="Matrix";
 
-	
+	public const string NormalBulletPath="Bullet";
+	public const int MatrixMaxHealth=100;
+
 }
