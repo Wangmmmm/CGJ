@@ -26,9 +26,11 @@ namespace GamePlay
                 data = obj.AddComponent<GamePlayerData>();
             }
             data.gamePlayer = this;
+            rayLine = GameObject.Find("RayLine").GetComponent<RayLineData>().rayLine;
         }
 
         #region variable
+        public RayLine rayLine;
         public Transform transform;
         public PlayerType playerType;
         public bool inMatrix;
