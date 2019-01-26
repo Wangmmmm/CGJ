@@ -25,6 +25,7 @@ namespace GamePlay
             {
                 data = obj.AddComponent<GamePlayerData>();
             }
+            data.gamePlayer = this;
         }
 
         #region variable

@@ -34,3 +34,4 @@ sysinfo.txt
 .vs/CGJ/v15/Server/sqlite3/storage.ide
 .vs/CGJ/v15/Server/sqlite3/storage.ide-shm
 .vs/CGJ/v15/Server/sqlite3/storage.ide-wal
+*.ide-wal

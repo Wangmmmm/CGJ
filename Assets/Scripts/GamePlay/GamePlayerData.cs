@@ -8,5 +8,6 @@ namespace GamePlay
         public float speed;
         [Range(0, 60)]
         public float rotSpeed;
+        public GamePlayer gamePlayer;
     }
 }

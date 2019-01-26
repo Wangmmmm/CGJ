@@ -18,6 +18,7 @@ namespace GamePlay
                 data = obj.AddComponent<RayLineData>();
             }
             currentEnergy = data.MaxEnergy;
+            data.rayLine = this;
         }
 
         public float currentEnergy;
@@ -70,6 +71,33 @@ namespace GamePlay
             return currentEnergy >= data.MaxEnergy;
         }
 
+        private float ClampEnergy(float energy, float min, float max)
+        {
+            if (energy < min)
+                return min;
+            else if (energy > max)
+                return max;
+            else
+                return energy;
+        }
+
+        private void SetLineRenderer()
+        {
+            var lineRenderer = transform.GetComponent<LineRenderer>();
+            Vector3[] points = new Vector3[2]
+           {
+                player1.transform.position,
+                player2.transform.position
+           };
+            lineRenderer.SetPositions(points);
+        }
+
+        private void SetCollider()
+        {
+            var collider = transform.GetComponent<Collider>();
+            //collider.s
+        }
+
         void IGamePlay.Init()
         {
             
@@ -77,8 +105,17 @@ namespace GamePlay
 
         void IGamePlay.Update()
         {
+            SetLineRenderer();
+            currentEnergy = ClampEnergy(currentEnergy, 0, data.MaxEnergy);         
             transform.position = Pos;
-            GetDamageFromLength();
+            if(GetDamageFromLength())
+            {
+
+            }
+            else
+            {
+
+            }
         }
     }
 }

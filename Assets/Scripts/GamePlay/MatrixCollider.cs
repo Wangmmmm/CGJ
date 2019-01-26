@@ -15,10 +15,7 @@ public class MatrixCollider : MonoBehaviour {
 	{
         if (other.GetComponent<GamePlayerData>() != null)
         {
-            if (other.gameObject.name == "Player1")
-                GameManager.gamePlay.playerManager.player1.inMatrix = true;
-            else
-                GameManager.gamePlay.playerManager.player2.inMatrix = true;
+            other.GetComponent<GamePlayerData>().gamePlayer.inMatrix = true;
         }
 	}
 
@@ -26,10 +23,7 @@ public class MatrixCollider : MonoBehaviour {
     {
         if (other.GetComponent<GamePlayerData>() != null)
         {
-            if (other.gameObject.name == "Player1")
-                GameManager.gamePlay.playerManager.player1.inMatrix = false;
-            else
-                GameManager.gamePlay.playerManager.player2.inMatrix = false;
+            other.GetComponent<GamePlayerData>().gamePlayer.inMatrix = false;
         }
     }
 }

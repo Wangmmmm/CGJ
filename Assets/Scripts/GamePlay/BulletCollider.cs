@@ -2,20 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletCollider : MonoBehaviour {
+namespace GamePlay
+{
+    public class BulletCollider : MonoBehaviour
+    {
 
-	/// <summary>
-	/// OnCollisionEnter is called when this collider/rigidbody has begun
-	/// touching another rigidbody/collider.
-	/// </summary>
-	/// <param name="other">The Collision data associated with this collision.</param>
-	void OnCollisionEnter(Collision other)
-	{
-		RayLineData rayLineData = other.gameObject.GetComponent<RayLineData>();
-		if(rayLineData!=null)
-		{
-			
-		}
-	
-	}
+        /// <summary>
+        /// OnCollisionEnter is called when this collider/rigidbody has begun
+        /// touching another rigidbody/collider.
+        /// </summary>
+        /// <param name="other">The Collision data associated with this collision.</param>
+        void OnCollisionEnter(Collision other)
+        {
+            RayLineData rayLineData = other.gameObject.GetComponent<RayLineData>();
+            if (rayLineData != null)
+            {
+
+            }
+
+        }
+    }
 }
