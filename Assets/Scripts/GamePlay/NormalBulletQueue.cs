@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+namespace GamePlay{
 public class NormalBulletQueue : MonoBehaviour {
 
 	public float spawnTime;
@@ -56,16 +56,6 @@ public class NormalBulletQueue : MonoBehaviour {
 			bulletList.Add(movement);			
 		}
 	}
-	float currentTime =0;
-	void Update()
-	{
-		if(currentTime>-1)
-			currentTime+=Time.deltaTime;
-	
-		if(currentTime>spawnTime)
-		{
-			Spawn();
-			currentTime=-1;
-		}
+
 	}
 }

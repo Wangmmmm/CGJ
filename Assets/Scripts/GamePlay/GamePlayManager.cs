@@ -14,7 +14,8 @@ namespace GamePlay
         public RayLine rayLine;
 
         List<IGamePlay> gamePlayList = new List<IGamePlay>();
-
+        List<IGamePlay> gamePlayAddBuffer = new List<IGamePlay>();
+         List<IGamePlay> gamePlayDeleteBuffer = new List<IGamePlay>();
         public void AddIGamePlayList(IGamePlay igamePlay)
         {
             if (gamePlayList.Contains(igamePlay))
@@ -22,7 +23,7 @@ namespace GamePlay
                 Debug.Log("Already exist in IGamePlayList");
                 return;
             }
-            gamePlayList.Add(igamePlay);
+            gamePlayAddBuffer.Add(igamePlay);
         }
 
         public void RemoveIGamePlayList(IGamePlay igamePlay)
@@ -32,7 +33,7 @@ namespace GamePlay
                 Debug.Log("Already remove from IGamePlayList");
                 return;
             }
-            gamePlayList.Remove(igamePlay);
+            gamePlayDeleteBuffer.Add(igamePlay);
         }
 
         void Awake()
@@ -46,6 +47,18 @@ namespace GamePlay
         // Update is called once per frame
         void Update()
         {
+            foreach(var buffer in gamePlayAddBuffer)
+            {
+                gamePlayList.Add(buffer);
+            }
+            gamePlayAddBuffer.Clear();
+
+            foreach(var buffer in gamePlayDeleteBuffer)
+            {
+                gamePlayList.Remove(buffer);
+            }
+            gamePlayDeleteBuffer.Clear();
+
             foreach(var igamePlay in gamePlayList)
             {
                 igamePlay.Update();

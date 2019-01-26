@@ -20,16 +20,23 @@ namespace GamePlay
         {
 			GameObject matrixObj = GameObject.Find("Matrix");
 			TheMatrix matrix = new TheMatrix(matrixObj);
-
+            GameManager.gamePlay.AddIGamePlayList(matrix);
         }
 
 		public void BuildBullet()
 		{
 			InitBullet();
+
+
+
             GameObject bulletParent=GameObject.Find("Bullets");
             foreach(var movement in bulletParent.transform.GetComponentsInChildren<NormalBulletQueue>())
             {
                 movement.Init();
+                NormalBulletQueueGamePlay normalBulletQueueGamePlay =new NormalBulletQueueGamePlay(movement.gameObject);
+
+                GameManager.gamePlay.AddIGamePlayList(normalBulletQueueGamePlay);
+
             }
 
 
