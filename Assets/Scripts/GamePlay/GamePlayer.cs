@@ -26,11 +26,10 @@ namespace GamePlay
                 data = obj.AddComponent<GamePlayerData>();
             }
             data.gamePlayer = this;
-            rayLine = GameObject.Find("RayLine").GetComponent<RayLineData>().rayLine;
         }
 
         #region variable
-        public RayLine rayLine;
+        public RayLine rayLine = GameManager.gamePlay.rayLine;
         public Transform transform;
         public PlayerType playerType;
         public bool inMatrix;
@@ -38,15 +37,6 @@ namespace GamePlay
         #endregion
 
         #region Method
-        /// <summary>
-        /// 是否外边保护基地
-        /// </summary>
-        /// <returns></returns>
-        public bool OnProtect()
-        {
-            return default(bool);
-        }
-
         /// <summary>
         /// 移动控制
         /// </summary>
