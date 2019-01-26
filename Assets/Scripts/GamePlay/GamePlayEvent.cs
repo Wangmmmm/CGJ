@@ -60,7 +60,7 @@ public class EventSystem  {
 	{
 		if(events[eventData.eventType]==null)
 		{
-			Debug.Log("no Add");
+			Debug.Log("no listener");
 		}
 		foreach(EventObserver observer in events[eventData.eventType] )	
 		{

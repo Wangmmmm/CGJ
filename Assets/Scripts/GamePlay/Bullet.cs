@@ -14,7 +14,7 @@ public class NormalBulletQueueGamePlay:IGamePlay{
 
 
 	GameObject obj;
-	List<Bullet> bullets=new List<Bullet>();
+	//List<Bullet> bullets=new List<Bullet>();
 	public NormalBulletQueueGamePlay(GameObject obj)
 	{
 		this.obj=obj;
@@ -23,10 +23,11 @@ public class NormalBulletQueueGamePlay:IGamePlay{
 	public void Init(){
 		
 	}
-	public List<Bullet> GetBullets()
-	{
-		return bullets;
-	}
+	private int childCount=0;
+	// public List<Bullet> GetBullets()
+	// {
+	// 	return bullets;
+	// }
 	float currentTime =0;
 	public  void Update()
 	{
@@ -40,11 +41,12 @@ public class NormalBulletQueueGamePlay:IGamePlay{
 			foreach(var BulletMovement in obj.transform.GetComponentsInChildren<NormalBulletMovement>())
 			{
 				Bullet bullet = new NormalBullet();
-				bullets.Add(bullet);
+				//bullets.Add(bullet);
 				bullet.bulletType=BulletType.Normal;
 				bullet.BulletObject = BulletMovement.gameObject;
+				bullet.normalBulletQueueGamePlay=this;
 				bullet.Init();
-
+				childCount++;
 				GameManager.gamePlay.AddIGamePlayList(bullet);
 			}
 
@@ -54,7 +56,16 @@ public class NormalBulletQueueGamePlay:IGamePlay{
 	}
 	public void Destroy()
 	{
-
+			GameObject.Destroy(this.obj);
+			GameManager.gamePlay.RemoveIGamePlayList(this);
+	}
+	public void OnBulletDestroy()
+	{
+		childCount--;
+		if(childCount==0)
+		{
+			this.Destroy();
+		}
 	}
 
 }
@@ -65,6 +76,8 @@ public class Bullet:IGamePlay  {
 	public int damage;
 	public GameObject BulletObject;
 	
+
+	public NormalBulletQueueGamePlay normalBulletQueueGamePlay ;
 	public BulletType bulletType;
 	public virtual void Init(){
 
@@ -100,6 +113,7 @@ public class NormalBullet:Bullet
 	{
 		GameObject.Destroy(this.BulletObject);
 		GameManager.gamePlay.RemoveIGamePlayList(this);
+		normalBulletQueueGamePlay.OnBulletDestroy();
 	}
 }
 
