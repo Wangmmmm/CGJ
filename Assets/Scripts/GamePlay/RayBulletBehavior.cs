@@ -39,7 +39,9 @@ public class RayBulletBehavior : MonoBehaviour {
 	{
 		transform.Find("Spawn").gameObject.SetActive(true);
 		transform.Find("Prevue").gameObject.SetActive(false);
-		
+
+		transform.Find("Ray").gameObject.GetComponent<BoxCollider>().enabled=true;
+		transform.Find("Ray").gameObject.GetComponent<LineRenderer>().enabled=true;
 		spawned=true;
 	}
 	public void OnUpdate () {
@@ -48,6 +50,8 @@ public class RayBulletBehavior : MonoBehaviour {
 		if(spawned)
 		{
 			transform.RotateAround(matrix.position,Vector3.up,rotateSpeed*Time.deltaTime);
+			LineRenderer linerenderer  = transform.Find("Ray").GetComponent<LineRenderer>();
+			linerenderer.SetPosition(0,transform.position);
 			rayBullet.collider.CheckLineIntersection();
 		}
 	}

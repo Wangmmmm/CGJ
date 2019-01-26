@@ -151,12 +151,14 @@ public class RayBullet:Bullet
 		behavior = BulletObject.GetComponentInChildren<RayBulletBehavior>();
 		behavior.BindObject(this);
 		behavior.Init();
+	
 		ResetLength();
-
+		
 	}
 
 	public void ResetLength()
 	{
+		collider.endPos=GameManager.gamePlay.GetIGamePlay<TheMatrix>()[0].matrixGO.transform.position;
 		Length=behavior.distance;
 		
 	}

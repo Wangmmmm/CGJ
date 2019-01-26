@@ -10,31 +10,23 @@ namespace GamePlay
 		private Obstacle hitObstacle;
 
 		private RayLine hitLine;
+		public Vector3 endPos;
         public void BindObject(RayBullet bullet)
         {
             this.bullet = bullet;
         }
-		
+
         public void SetLength(float length)
         {
             BoxCollider boxCollider = GetComponent<BoxCollider>();
             boxCollider.size = new Vector3(length, 1, 1);
             boxCollider.center = new Vector3(length / 2 + 0.5f, 0, 0);
 
+			LineRenderer linerenderer  = transform.parent.Find("Ray").GetComponent<LineRenderer>();
 
-
-			if(hitLine!=null)
-			{
-				
-			}
-			else if(hitObstacle!=null)
-			{
-
-			}
-			else{
-
-			}
-        }
+		
+			linerenderer.SetPosition(1,endPos);
+		}
 
 
 		public void CheckLineIntersection()
@@ -47,6 +39,7 @@ namespace GamePlay
 				if(hitLine!=null)
 				{
 					bullet.ResetLength();
+					endPos=GameManager.gamePlay.GetIGamePlay<TheMatrix>()[0].matrixGO.transform.position;
 					hitLine=null;
 				}
 			}
@@ -71,12 +64,13 @@ namespace GamePlay
 			{
 				bullet.HitLine(rayLine,interserctionPos);
 				hitLine=rayLine;
+				endPos=interserctionPos;
 				if(hitObstacle)
 				{
 					hitObstacle=null;
 				}
 			}
-			if(result==0)
+			if(result==-1)
 			{
 				if(hitLine!=null)
 				{
@@ -112,12 +106,14 @@ namespace GamePlay
              MatrixCollider matrix = other.collider.gameObject.GetComponentInChildren<MatrixCollider>();
             if (matrix != null)
             {
+				
                 bullet.HitMatrix(matrix.matrix);
                 return;
             }
             GamePlay.Obstacle obstacle = other.collider.gameObject.GetComponentInChildren<Obstacle>();
             if (obstacle != null)
             {
+				endPos=obstacle.transform.position;
                 bullet.HitObstacle(obstacle);
 				hitObstacle=obstacle;
             }

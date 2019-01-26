@@ -41,10 +41,15 @@ namespace GamePlay
             foreach(IGamePlay gameplay in gamePlayList)
             {
                 T gameplayObj= gameplay as T;
-
                 if(gameplayObj!=null)
                 list.Add(gameplayObj);
 
+            }
+            foreach(IGamePlay gameplay in gamePlayAddBuffer)
+            {
+                 T gameplayObj= gameplay as T;
+                if(gameplayObj!=null)
+                list.Add(gameplayObj);
             }
             return list;
         }
