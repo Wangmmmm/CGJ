@@ -29,7 +29,7 @@ public class NormalBulletQueue : MonoBehaviour {
 
 	private List<NormalBulletMovement> bulletList = new List<NormalBulletMovement>();
 
-	void Start()
+	public void Init()
 	{
 		GameObject bulletTemplate=transform.Find("Bullet").gameObject;
 		bulletTemplate.SetActive(false);
@@ -37,9 +37,9 @@ public class NormalBulletQueue : MonoBehaviour {
 	public void Spawn()
 	{
 
-		Init();
+		InitBullet();
 	}
-	public void Init()
+	public void InitBullet()
 	{
 		GameObject bulletTemplate=transform.Find("Bullet").gameObject;
 		for(int i=0;i<bulletCount;i++)

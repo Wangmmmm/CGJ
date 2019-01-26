@@ -29,7 +29,7 @@ namespace GamePlay
             GameObject bulletParent=GameObject.Find("Bullets");
             foreach(var movement in bulletParent.transform.GetComponentsInChildren<NormalBulletQueue>())
             {
-                movement.gameObject.SetActive(true);
+                movement.Init();
             }
 
 

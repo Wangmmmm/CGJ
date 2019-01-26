@@ -10,10 +10,6 @@ public enum BulletType
 
 }
 
-public class BulletQuene
-{
-	
-}
 
 
 

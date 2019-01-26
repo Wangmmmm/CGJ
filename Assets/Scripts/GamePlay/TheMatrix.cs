@@ -18,7 +18,14 @@ public class TheMatrix : IGamePlay {
 	}
 	// Use this for initialization
 	public void Init () {
-		matrixGO.GetComponent<MatrixCollider>().BindObject(this); 
+		
+		
+		foreach(var collider in matrixGO.transform.GetComponentsInChildren<MatrixCollider>())
+		{
+			collider.BindObject(this);
+		}
+
+
 		health = MyConst.MatrixMaxHealth;
 	}
 
