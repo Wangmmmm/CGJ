@@ -1,16 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GamePlay;
 
 public class Ray : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+	//public float Length
+ //   {
+ //       get
+ //       {
+ //           Vector3.Distance()
+ //       }
+ //       set
+ //       {
+
+ //       }
+ //   }
 }
