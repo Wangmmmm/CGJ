@@ -50,6 +50,7 @@ public class RayBulletBehavior : MonoBehaviour {
 		if(spawned)
 		{
 			transform.RotateAround(matrix.position,Vector3.up,rotateSpeed*Time.deltaTime);
+			transform.forward=(matrix.position-this.transform.position).normalized;
 			LineRenderer linerenderer  = transform.Find("Ray").GetComponent<LineRenderer>();
 			linerenderer.SetPosition(0,transform.position);
 			rayBullet.collider.CheckLineIntersection();

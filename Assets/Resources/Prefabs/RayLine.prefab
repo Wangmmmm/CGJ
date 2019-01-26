@@ -65,8 +65,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a67f0df79cef31a45a264635d3e64876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxEnergy: 100
-  RecoverEnergySpeed: 50
+  MaxEnergy: 600
+  RecoverEnergySpeed: 200
   DecFromLengthSpeed: 1
 --- !u!120 &120297853280461146
 LineRenderer:
@@ -83,7 +83,7 @@ LineRenderer:
   m_ReflectionProbeUsage: 0
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: d4aa23616cbd4874eb818472376c4a3d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

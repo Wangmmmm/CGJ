@@ -86,8 +86,8 @@ namespace GamePlay
         /// <param name="other">The Collision data associated with this collision.</param>
         void OnCollisionEnter(Collision other)
         {
-			
-            MatrixCollider matrix = other.collider.gameObject.GetComponentInChildren<MatrixCollider>();
+		
+            MatrixCollider matrix = other.gameObject.GetComponentInChildren<MatrixCollider>();
             if (matrix != null)
             {
                 bullet.HitMatrix(matrix.matrix);
@@ -103,7 +103,8 @@ namespace GamePlay
         /// <param name="other">The Collision data associated with this collision.</param>
         void OnCollisionStay(Collision other)
         {
-             MatrixCollider matrix = other.collider.gameObject.GetComponentInChildren<MatrixCollider>();
+			
+             MatrixCollider matrix = other.gameObject.GetComponentInChildren<MatrixCollider>();
             if (matrix != null)
             {
 				
@@ -113,7 +114,7 @@ namespace GamePlay
             GamePlay.Obstacle obstacle = other.collider.gameObject.GetComponentInChildren<Obstacle>();
             if (obstacle != null)
             {
-				endPos=obstacle.transform.position;
+				endPos=other.contacts[0].point;
                 bullet.HitObstacle(obstacle);
 				hitObstacle=obstacle;
             }

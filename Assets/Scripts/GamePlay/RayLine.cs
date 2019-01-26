@@ -83,7 +83,7 @@ namespace GamePlay
             else{
                  currentEnergy -= (bullet.energyConsume*Time.deltaTime);
             }
-           Debug.Log(currentEnergy);
+//           Debug.Log(currentEnergy);
             return currentEnergy > 0;
         }
 

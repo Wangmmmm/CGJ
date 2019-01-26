@@ -25,13 +25,16 @@ namespace GamePlay
                     );
                 return;
             }
-            Debug.Log(other.gameObject.name);
+//            Debug.Log(other.gameObject.name);
             MatrixCollider matrixCollider = other.gameObject.GetComponentInChildren<MatrixCollider>();
             if(matrixCollider!=null)
             {
                 matrixCollider.matrix.Hitted(this.bullet);
             }
         }
+
+        
+
         /// <summary>
         /// OnTriggerEnter is called when the Collider other enters the trigger.
         /// </summary>
