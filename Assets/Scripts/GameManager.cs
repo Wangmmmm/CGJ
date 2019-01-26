@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour {
 
 	public static EventSystem eventSystem;
 	void Awake () {
+		DontDestroyOnLoad(this.gameObject);
 		instance=GetComponent<GameManager>();
 		gamePlay=GetComponent<GamePlayManager>();
 		eventSystem= new EventSystem();
