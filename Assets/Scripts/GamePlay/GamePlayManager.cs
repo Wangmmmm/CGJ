@@ -12,6 +12,29 @@ namespace GamePlay
         public PlayerManager playerManager;
         BulletManager bulletManager;
         public RayLine rayLine;
+
+        List<IGamePlay> gamePlayList = new List<IGamePlay>();
+
+        public void AddIGamePlayList(IGamePlay igamePlay)
+        {
+            if (gamePlayList.Contains(igamePlay))
+            {
+                Debug.Log("Already exist in IGamePlayList");
+                return;
+            }
+            gamePlayList.Add(igamePlay);
+        }
+
+        public void RemoveIGamePlayList(IGamePlay igamePlay)
+        {
+            if (!gamePlayList.Contains(igamePlay))
+            {
+                Debug.Log("Already remove from IGamePlayList");
+                return;
+            }
+            gamePlayList.Remove(igamePlay);
+        }
+
         void Awake()
         {
             gamePlayBuild = new GamePlayBuild();
@@ -23,7 +46,10 @@ namespace GamePlay
         // Update is called once per frame
         void Update()
         {
-
+            foreach(var igamePlay in gamePlayList)
+            {
+                igamePlay.Update();
+            }
         }
     }
 }

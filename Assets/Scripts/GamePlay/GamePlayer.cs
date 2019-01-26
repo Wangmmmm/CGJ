@@ -30,6 +30,7 @@ namespace GamePlay
         #region variable
         public Transform transform;
         public PlayerType playerType;
+        public bool inMatrix;
         GamePlayerData data;
         #endregion
 
@@ -39,15 +40,6 @@ namespace GamePlay
         /// </summary>
         /// <returns></returns>
         public bool OnProtect()
-        {
-            return default(bool);
-        }
-
-        /// <summary>
-        /// 是否在基地
-        /// </summary>
-        /// <returns></returns>
-        public bool InMatrix()
         {
             return default(bool);
         }
