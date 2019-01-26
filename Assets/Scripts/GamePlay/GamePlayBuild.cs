@@ -32,12 +32,22 @@ namespace GamePlay
             GameObject bulletParent=GameObject.Find("Bullets");
             foreach(var movement in bulletParent.transform.GetComponentsInChildren<NormalBulletQueue>())
             {
-                movement.Init();
-                NormalBulletQueueGamePlay normalBulletQueueGamePlay =new NormalBulletQueueGamePlay(movement.gameObject);
+               // movement.Init();
+               // NormalBulletQueueGamePlay normalBulletQueueGamePlay =new NormalBulletQueueGamePlay(movement.gameObject);
 
-                GameManager.gamePlay.AddIGamePlayList(normalBulletQueueGamePlay);
+               // GameManager.gamePlay.AddIGamePlayList(normalBulletQueueGamePlay);
 
             }
+
+            foreach(var rayBulletBehaviour in bulletParent.transform.GetComponentsInChildren<RayBulletBehavior>())
+            {
+                RayBullet bullet = new RayBullet(rayBulletBehaviour.gameObject);
+                GameManager.gamePlay.AddIGamePlayList(bullet);
+                bullet.Init();
+
+            }
+
+
 
 
 

@@ -15,7 +15,8 @@ public class SceneLoader : MonoBehaviour {
         gamePlayBuild.
         BuildMatrix();
         GameManager.gamePlay.gamePlayBuild.BuildBullet();
-
+        
+        
 
 
 

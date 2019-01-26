@@ -4,10 +4,10 @@ using UnityEngine;
 namespace GamePlay{
 public class TheMatrix : IGamePlay {
 
-	private GameObject matrixGO;
+	public GameObject matrixGO;
 
 
-	private int health;
+	private float health;
 
 
 
@@ -30,16 +30,20 @@ public class TheMatrix : IGamePlay {
 	}
 
 
-	public void Hitted(Bullet bullet)
+	public void Hitted(Bullet bullet,bool perframe=false)
 	{
-		health-=bullet.damage;
+		float damage = 0;
+		if(!perframe)
+			damage=bullet.damage;
+		else{
+			damage=bullet.damage*Time.fixedDeltaTime;
+		}
+		health-=damage;
 		EventData  hitEvenData = new EventData();
 		hitEvenData.eventType = EventEnum.MatrixHit;
 		hitEvenData.param=(object)bullet.damage;
 		GameManager.eventSystem.Raise(hitEvenData);
-
-
-		Debug.Log("基地被撞擊");
+		//Debug.Log("基地被撞擊");
 		bullet.Destroy();                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
 		if(health<=0)
 		{
@@ -48,14 +52,8 @@ public class TheMatrix : IGamePlay {
 			desEvenData.eventType = EventEnum.MatrixHit;
 			desEvenData.sender=(object)this;
 			GameManager.eventSystem.Raise(desEvenData);
-
-
-
-
 			Debug.Log("基地被毀滅");
 		}
-		
-		
 	}
 
 

@@ -7,7 +7,7 @@ namespace GamePlay{
 public enum BulletType
 {
 	Normal,
-
+	Ray
 }
 
 public class NormalBulletQueueGamePlay:IGamePlay{
@@ -73,8 +73,8 @@ public class NormalBulletQueueGamePlay:IGamePlay{
 
 
 public class Bullet:IGamePlay  {
-	public int damage;
-	public int energyConsume;
+	public float damage;
+	public float energyConsume;
 	public GameObject BulletObject;
 	
 
@@ -124,19 +124,81 @@ public class NormalBullet:Bullet
 public class RayBullet:Bullet
 {
 
+	private float length;
 	
-
-
+	public float Length
+	{
+		get{
+			return length;
+		}
+		set{
+			length=value;
+			collider.SetLength(length);
+		}
+	}
+	public RayBullet(GameObject GO)
+	{
+		BulletObject=GO;
+	}
+	RayBulletBehavior behavior;
+	public RayBulletCollider collider;
 	public override void Init()
 	{
 		damage=300;
-		energyConsume=80;
-		var collider =BulletObject.GetComponentInChildren<BulletCollider>();
-		collider.BindObj(this);
+		energyConsume=50;
+		collider =BulletObject.GetComponentInChildren<RayBulletCollider>();
+		collider.BindObject(this);
+		behavior = BulletObject.GetComponentInChildren<RayBulletBehavior>();
+		behavior.BindObject(this);
+		behavior.Init();
+		ResetLength();
+
 	}
+
+	public void ResetLength()
+	{
+		Length=behavior.distance;
+		
+	}
+	public void HitObstacle(Obstacle obstacle)
+	{
+		Length=(obstacle.transform.position-collider.transform.position).magnitude;
+	}
+
+	public void HitLine(RayLine line,Vector3 pos)
+	{
+		Length=(pos-collider.transform.position).magnitude;
+		line.GetDamageFromBullet(this,true);
+	}
+	public void HitMatrix(TheMatrix matrix)
+	{
+		matrix.Hitted(this,true);
+	}
+
+	float initTime=0;
+	
+	bool spawned=false;
+	bool prevue=false;
 	public override void Update()
 	{
-	//	Debug.Log("test");
+		
+		initTime+=Time.deltaTime;
+		if(initTime>behavior.spawnTime&&!prevue)
+		{
+			prevue=true;
+			behavior.Prevue();
+		}
+
+		if(initTime>=behavior.preLastTime+behavior.spawnTime&&!spawned)
+		{
+			behavior.Spawn();
+			spawned=true;
+		}
+		if(initTime>=behavior.lifeTime+behavior.preLastTime+behavior.spawnTime)
+		{
+			this.Destroy();
+		}
+		behavior.OnUpdate();
 	}
 	
 	public override void Destroy()

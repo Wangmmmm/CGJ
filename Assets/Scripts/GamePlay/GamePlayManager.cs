@@ -41,7 +41,7 @@ namespace GamePlay
             foreach(IGamePlay gameplay in gamePlayList)
             {
                 T gameplayObj= gameplay as T;
-                list.Add(gameplayObj);
+                list.Add(gameplayObj);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
             }
             return list;
         }

@@ -29,7 +29,10 @@ namespace GamePlay
             }
             collider.rayLine = this;
         }
-
+        public bool IsActive()
+        {
+            return transform.GetComponent<LineRenderer>().enabled;
+        }
         public float currentEnergy;
         public RayLineData data;
         public RayLineCollider collider;
@@ -70,10 +73,17 @@ namespace GamePlay
                 currentEnergy = data.MaxEnergy;
         }
 
-        public bool GetDamageFromBullet(Bullet bullet)
+        public bool GetDamageFromBullet(Bullet bullet,bool perframe=false)
         {
-            currentEnergy -= bullet.energyConsume;
-            bullet.Destroy();
+            if(!perframe)
+            {
+                currentEnergy -= bullet.energyConsume;
+                bullet.Destroy();
+            }
+            else{
+                 currentEnergy -= (bullet.energyConsume*Time.deltaTime);
+            }
+           Debug.Log(currentEnergy);
             return currentEnergy > 0;
         }
 
