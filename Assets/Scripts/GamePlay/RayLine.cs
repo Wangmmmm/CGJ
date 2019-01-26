@@ -117,5 +117,11 @@ namespace GamePlay
 
             }
         }
+
+        
+        public void Destroy()
+        {
+            
+        }
     }
 }

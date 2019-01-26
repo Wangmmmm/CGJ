@@ -52,7 +52,10 @@ public class NormalBulletQueueGamePlay:IGamePlay{
 			currentTime=-1;
 		}
 	}
+	public void Destroy()
+	{
 
+	}
 
 }
 
@@ -70,6 +73,12 @@ public class Bullet:IGamePlay  {
 	public virtual void Update()
 	{
 
+	}
+
+	
+	public void Destroy()
+	{
+		
 	}
 
 }

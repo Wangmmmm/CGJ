@@ -19,7 +19,11 @@ namespace GamePlay
 				rayLineData.rayLine.GetDamageFromBullet(bullet.damage);
                 return;
             }
-            
+            GamePlayerData gamePlayerData = other.gameObject.GetComponent<GamePlayerData>();
+            if(gamePlayerData!=null)
+            {
+                gamePlayerData.gamePlayer.rayLine.GetDamageFromBullet(bullet.damage);
+            }
 
         }
     }

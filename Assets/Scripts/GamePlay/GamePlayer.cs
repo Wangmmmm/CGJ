@@ -143,5 +143,12 @@ namespace GamePlay
             PlayerMove();
         }
         #endregion
+
+
+        
+        public void Destroy()
+        {
+            
+        }
     }
 }
