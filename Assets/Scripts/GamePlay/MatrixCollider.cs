@@ -13,6 +13,23 @@ public class MatrixCollider : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other)
 	{
-		
+        if (other.GetComponent<GamePlayerData>() != null)
+        {
+            if (other.gameObject.name == "Player1")
+                GameManager.gamePlay.playerManager.player1.inMatrix = true;
+            else
+                GameManager.gamePlay.playerManager.player2.inMatrix = true;
+        }
 	}
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.GetComponent<GamePlayerData>() != null)
+        {
+            if (other.gameObject.name == "Player1")
+                GameManager.gamePlay.playerManager.player1.inMatrix = false;
+            else
+                GameManager.gamePlay.playerManager.player2.inMatrix = false;
+        }
+    }
 }

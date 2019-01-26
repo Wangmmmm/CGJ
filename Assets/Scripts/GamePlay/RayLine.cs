@@ -23,6 +23,8 @@ namespace GamePlay
         public float currentEnergy;
         public RayLineData data;
         public Transform transform;
+        private GamePlayer player1 = GameManager.gamePlay.playerManager.player1;
+        private GamePlayer player2 = GameManager.gamePlay.playerManager.player2;
         public float Length
         {
             get
@@ -30,13 +32,17 @@ namespace GamePlay
                 return Vector3.Distance(player1.transform.position, player2.transform.position);
             }
         }
-
-        private GamePlayer player1 = GameManager.gamePlay.playerManager.player1;
-        private GamePlayer player2 = GameManager.gamePlay.playerManager.player2;
+        public Vector3 Pos
+        {
+            get
+            {
+                return (player1.transform.position + player2.transform.position) / 2;
+            }
+        }
 
         public void OnRecover()
         {
-            if (player1.InMatrix() && player2.InMatrix())
+            if (player1.inMatrix && player2.inMatrix)
             {
                 if (currentEnergy < data.MaxEnergy)
                 {
@@ -62,14 +68,6 @@ namespace GamePlay
         public bool IsMaxEnergy()
         {
             return currentEnergy >= data.MaxEnergy;
-        }
-
-        public Vector3 Pos
-        {
-            get
-            {
-                return (player1.transform.position + player2.transform.position) / 2;
-            }
         }
 
         void IGamePlay.Init()
