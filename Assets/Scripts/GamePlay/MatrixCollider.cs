@@ -17,6 +17,10 @@ public class MatrixCollider : MonoBehaviour {
         {
             other.GetComponent<GamePlayerData>().gamePlayer.inMatrix = true;
         }
+
+       // if()
+
+
 	}
 
     private void OnTriggerExit(Collider other)

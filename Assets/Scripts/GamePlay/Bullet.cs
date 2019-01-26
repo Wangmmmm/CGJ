@@ -35,11 +35,6 @@ public class NormalBulletQueueGamePlay:IGamePlay{
 	
 		if(currentTime>obj.GetComponent<NormalBulletQueue>().spawnTime)
 		{
-
-			
-
-
-
 			obj.GetComponent<NormalBulletQueue>().Spawn();
 
 			foreach(var BulletMovement in obj.transform.GetComponentsInChildren<NormalBulletMovement>())
@@ -84,6 +79,8 @@ public class NormalBullet:Bullet
 	public override void Init()
 	{
 		damage=10;
+		var collider =BulletObject.GetComponentInChildren<BulletCollider>();
+		collider.BindObj(this);
 	}
 	public override void Update()
 	{
