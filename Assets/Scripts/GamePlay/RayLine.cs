@@ -34,6 +34,7 @@ namespace GamePlay
         public RayLineData data;
         public RayLineCollider collider;
         public Transform transform;
+        private bool isLeaving;
         private GamePlayer player1 = GameManager.gamePlay.playerManager.player1;
         private GamePlayer player2 = GameManager.gamePlay.playerManager.player2;
         public float Length
@@ -101,13 +102,15 @@ namespace GamePlay
         {
             if(player1.inMatrix && player2.inMatrix)
             {
+                isLeaving = true;
                 RecoverEnergy();
             }
             else if(!player1.inMatrix && !player2.inMatrix)
             {
+                isLeaving = false;
                 GetDamageFromLength();
             }
-            else
+            else if(!isLeaving)
             {
                 currentEnergy = 0;
             }
@@ -117,7 +120,8 @@ namespace GamePlay
         {
             var lineRenderer = transform.GetComponent<LineRenderer>();
             if (currentEnergy > 0 && !player1.inMatrix && !player2.inMatrix)
-            {           
+            {
+                lineRenderer.enabled = true;
                 Vector3[] points = new Vector3[2]
                {
                 player1.transform.position,
