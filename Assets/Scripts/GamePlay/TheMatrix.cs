@@ -33,11 +33,25 @@ public class TheMatrix : IGamePlay {
 	public void Hitted(Bullet bullet)
 	{
 		health-=bullet.damage;
+		EventData  hitEvenData = new EventData();
+		hitEvenData.eventType = EventEnum.MatrixHit;
+		hitEvenData.param=(object)bullet.damage;
+		GameManager.eventSystem.Raise(hitEvenData);
+
+
 		Debug.Log("基地被撞擊");
 		bullet.Destroy();                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
 		if(health<=0)
 		{
 			
+			EventData  desEvenData = new EventData();
+			desEvenData.eventType = EventEnum.MatrixHit;
+			desEvenData.sender=(object)this;
+			GameManager.eventSystem.Raise(desEvenData);
+
+
+
+
 			Debug.Log("基地被毀滅");
 		}
 		
