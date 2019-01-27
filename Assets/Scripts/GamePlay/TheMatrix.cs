@@ -69,6 +69,7 @@ public class TheMatrix : IGamePlay {
 			matrixGO.transform.Find("home").GetComponent<MeshRenderer>().enabled=false;
 			matrixGO.transform.Find("MatrixRecover").gameObject.SetActive(false);
 			AudioManager.instance.PlayMatrixDes();
+                GameObject.Find("SceneLoader").GetComponent<SceneLoader>().Defeat();
 		}
 	}
 
