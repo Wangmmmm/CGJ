@@ -1080,14 +1080,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 735294c03f0ca61418b173545a016ccd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  source: {fileID: 1489594890}
-  laserSource: {fileID: 0}
+  source: {fileID: 2082101507}
+  laserSource: {fileID: 1489594890}
   addline: {fileID: 8300000, guid: 3c16bc7bd2a43064ca508da9d443804d, type: 3}
   removeline: {fileID: 8300000, guid: ea4e17c633d8ae24cb665a41f2dcf2d9, type: 3}
   linehurtfrombullet: {fileID: 8300000, guid: 52cdc7292e2766f428955f26f17b6a88, type: 3}
   matrixhurt: {fileID: 8300000, guid: 14794f6639cd9a94f96389ab8f01cc84, type: 3}
-  matrixDes: {fileID: 0}
-  laser: {fileID: 0}
+  matrixDes: {fileID: 8300000, guid: a6c9c42d55516084fb3a9b3b2094509d, type: 3}
+  laser: {fileID: 8300000, guid: c520a11177f0205478b50c058c29287e, type: 3}
   BGM: {fileID: 8300000, guid: abf6a67c4e7f88f40ad8c928ff4e1bbf, type: 3}
 --- !u!4 &617782635 stripped
 Transform:
@@ -2280,6 +2280,16 @@ Prefab:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114639704779437878, guid: 49958340e4d3f4b4b883e328c8bcde18,
+        type: 2}
+      propertyPath: m_Value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224918657448231508, guid: 49958340e4d3f4b4b883e328c8bcde18,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 49958340e4d3f4b4b883e328c8bcde18, type: 2}
   m_IsPrefabAsset: 0
@@ -2298,7 +2308,7 @@ GameObject:
   - component: {fileID: 1489594891}
   - component: {fileID: 1489594890}
   m_Layer: 0
-  m_Name: GameObject (1)
+  m_Name: laser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2313,11 +2323,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_audioClip: {fileID: 8300000, guid: c520a11177f0205478b50c058c29287e, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -3518,7 +3528,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

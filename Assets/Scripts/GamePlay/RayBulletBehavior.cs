@@ -42,7 +42,11 @@ public class RayBulletBehavior : MonoBehaviour {
 
 		transform.Find("Ray").gameObject.GetComponent<BoxCollider>().enabled=true;
 		transform.Find("Ray").gameObject.GetComponent<LineRenderer>().enabled=true;
+
 		spawned=true;
+
+
+		
 	}
 	public void OnUpdate () {
 

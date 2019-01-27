@@ -194,6 +194,7 @@ public class RayBullet:Bullet
 		if(initTime>=behavior.preLastTime+behavior.spawnTime&&!spawned)
 		{
 			behavior.Spawn();
+			AudioManager.instance.PlayLaser();
 			spawned=true;
 		}
 		if(initTime>=behavior.lifeTime+behavior.preLastTime+behavior.spawnTime)
@@ -207,6 +208,7 @@ public class RayBullet:Bullet
 	{
 		GameObject.Destroy(this.BulletObject);
 		GameManager.gamePlay.RemoveIGamePlayList(this);
+		AudioManager.instance.CloseLaser();
 	
 	}
 }

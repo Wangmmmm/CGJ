@@ -39,7 +39,15 @@ public class AudioManager : MonoBehaviour {
 	}
 	public void PlayMatrixDes()
 	{
-		source.PlayOneShot(matrixDes);
+		GetComponent<AudioSource>().PlayOneShot(matrixDes);
+	}
+	public void PlayLaser()
+	{
+		laserSource.Play();
+	}
+	public void CloseLaser()
+	{
+		laserSource.Pause();
 	}
 
 }
