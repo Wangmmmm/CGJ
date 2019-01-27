@@ -28,6 +28,9 @@ public class NormalBulletQueue : MonoBehaviour {
 	public float moveSpeed;
 
 	private List<NormalBulletMovement> bulletList = new List<NormalBulletMovement>();
+	void Start(){
+		Init();
+	}
 
 	public void Init()
 	{

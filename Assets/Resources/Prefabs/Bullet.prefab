@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 136869885944444068}
   - component: {fileID: 114212186543652690}
   - component: {fileID: 54631502134097570}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4801502236067544}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 4699186020958320}
   - component: {fileID: 33286788559406888}
   - component: {fileID: 23758922491669878}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: bullet1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,7 +69,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1171006029514606}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 6.33, y: 0, z: 5.11}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.37341747, y: 0.28252733, z: 0.37341747}
   m_Children:
   - {fileID: 4801502236067544}

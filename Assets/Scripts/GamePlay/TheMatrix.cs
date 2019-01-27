@@ -36,7 +36,10 @@ public class TheMatrix : IGamePlay {
 	{
 		float damage = 0;
 		if(!perframe)
+		{
 			damage=bullet.damage;
+			GameManager.gamePlay.loadEffect.LoadBulletBoom(bullet.BulletObject.transform.position);
+		}
 		else{
 			damage=bullet.damage*Time.fixedDeltaTime;
 		}
@@ -56,6 +59,9 @@ public class TheMatrix : IGamePlay {
 			desEvenData.sender=(object)this;
 			GameManager.eventSystem.Raise(desEvenData);
 			Debug.Log("基地被毀滅");
+
+
+			
 		}
 	}
 
