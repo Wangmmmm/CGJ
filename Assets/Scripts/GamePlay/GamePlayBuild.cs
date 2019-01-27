@@ -32,10 +32,10 @@ namespace GamePlay
             GameObject bulletParent=GameObject.Find("Bullets");
             foreach(var movement in bulletParent.transform.GetComponentsInChildren<NormalBulletQueue>())
             {
-            //    movement.Init();
-            //    NormalBulletQueueGamePlay normalBulletQueueGamePlay =new NormalBulletQueueGamePlay(movement.gameObject);
+  
+              NormalBulletQueueGamePlay normalBulletQueueGamePlay =new NormalBulletQueueGamePlay(movement.gameObject);
 
-            //    GameManager.gamePlay.AddIGamePlayList(normalBulletQueueGamePlay);
+             GameManager.gamePlay.AddIGamePlayList(normalBulletQueueGamePlay);
 
             }
 

@@ -104,7 +104,7 @@ public class NormalBullet:Bullet
 	public override void Init()
 	{
 		damage=120;
-		energyConsume=120;
+		energyConsume=8;
 		var collider =BulletObject.GetComponentInChildren<BulletCollider>();
 		collider.BindObj(this);
 	}
@@ -144,8 +144,8 @@ public class RayBullet:Bullet
 	public RayBulletCollider collider;
 	public override void Init()
 	{
-		damage=300;
-		energyConsume=50;
+		damage=150;
+		energyConsume=10;
 		collider =BulletObject.GetComponentInChildren<RayBulletCollider>();
 		collider.BindObject(this);
 		behavior = BulletObject.GetComponentInChildren<RayBulletBehavior>();
