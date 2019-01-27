@@ -23,7 +23,8 @@ public class SceneLoader : MonoBehaviour {
     public Sprite defeat4;
 
     public bool isCG;
-
+    public GameObject mask;
+    public GameObject Canvas;
 
 	// Use this for initialization
 	void Start () {
@@ -33,7 +34,7 @@ public class SceneLoader : MonoBehaviour {
         var cg = CG.AddComponent<Image>();
         cg.raycastTarget = false;
         cg.sprite = cg1;
-        cg.DOFade(0.5f, 4).onComplete = delegate ()
+        cg.DOFade(0.99f, 4).onComplete = delegate ()
          {
              cg.sprite = cg2;
              cg.color =new Color(1, 1, 1, 1);
@@ -83,6 +84,7 @@ public class SceneLoader : MonoBehaviour {
                     cg.DOFade(0, 4).onComplete = delegate ()
                     {
                         isCG = false;
+                         Canvas.transform.Find("GameWin").gameObject.SetActive(true);
                     };
                 };
             };
@@ -110,6 +112,7 @@ public class SceneLoader : MonoBehaviour {
                     cg.DOFade(0, 4).onComplete = delegate ()
                     {
                         isCG = false;
+                       Canvas.transform.Find("GameOver").gameObject.SetActive(true);
                     };
                 };
             };
@@ -119,11 +122,30 @@ public class SceneLoader : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (isCG)
-            return;
+        {
+            mask.SetActive(true);
+             return;
+        }
+        else
+        {
+              mask.SetActive(false);
+        }
+        if(Canvas.transform.Find("GameOver").gameObject.activeInHierarchy)
+         return;
         timer -= Time.deltaTime;
         if (timer <= 0)
         {
             Victory();
         }
 	}
+
+    public void ReStart()
+    {
+        GameManager.gamePlay.ClearGamePlay();
+        Application.LoadLevel(Application.loadedLevel);
+    }
+    public void Exit()
+    {
+        Application.Quit();
+    }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 namespace GamePlay{
 public class TheMatrix : IGamePlay {
 
@@ -11,7 +12,7 @@ public class TheMatrix : IGamePlay {
 	public float health;
 
 
-
+	bool wudi;
 
 	public TheMatrix(GameObject obj)
 	{
@@ -19,6 +20,7 @@ public class TheMatrix : IGamePlay {
 		this.Init();
 	}
 	// Use this for initialization
+	Toggle toggle;
 	public void Init () {
 		
 		
@@ -28,13 +30,19 @@ public class TheMatrix : IGamePlay {
 		}
 
 
+
+
 		health = MyConst.MatrixMaxHealth;
+
+
+		toggle=GameObject.Find("Toggle").GetComponent<Toggle>();
 	}
 
 
 	public void Hitted(Bullet bullet,bool perframe=false)
 	{
 		float damage = 0;
+	
 		if(!perframe)
 		{
 			damage=bullet.damage;
@@ -44,6 +52,7 @@ public class TheMatrix : IGamePlay {
 		else{
 			damage=bullet.damage*Time.fixedDeltaTime;
 		}
+		if(!toggle.isOn)
 		health-=damage;
 		EventData  hitEvenData = new EventData();
 		hitEvenData.eventType = EventEnum.MatrixHit;

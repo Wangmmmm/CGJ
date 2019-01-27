@@ -53,6 +53,10 @@ namespace GamePlay
             }
             return list;
         }
+        public void ClearGamePlay()
+        {
+            gamePlayList.Clear();
+        }
         void Awake()
         {
             gamePlayBuild = new GamePlayBuild();

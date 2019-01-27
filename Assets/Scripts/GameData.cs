@@ -13,10 +13,14 @@ public class GameData : MonoBehaviour {
     void GetMatrixData()
     {
         matrixMaxLife = MyConst.MatrixMaxHealth;
-      
-      
-        var matrix = GameManager.gamePlay.GetIGamePlay<TheMatrix>()[0];
-        matrixCurrentLife = matrix.health;
+        int count = GameManager.gamePlay.GetIGamePlay<TheMatrix>().Count;
+        if(count==0)
+            matrixCurrentLife=matrixMaxLife;
+        else{
+               var matrix = GameManager.gamePlay.GetIGamePlay<TheMatrix>()[0];
+                matrixCurrentLife = matrix.health;
+        }
+     
         
     }
 
