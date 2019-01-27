@@ -15,7 +15,7 @@ namespace GamePlay
 
         public void LoadBulletBoom(Vector3 pos)
         {
-            GameObject go = Resources.Load<GameObject>(MyConst.PrefabPath + "MatrixBoom");
+            GameObject go = Resources.Load<GameObject>(MyConst.PrefabPath + "BulletBoom");
             go = GameObject.Instantiate(go);
             go.transform.position = pos;
             GameObject.Destroy(go, 2f);

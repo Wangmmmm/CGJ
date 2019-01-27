@@ -59,9 +59,15 @@ public class TheMatrix : IGamePlay {
 			desEvenData.sender=(object)this;
 			GameManager.eventSystem.Raise(desEvenData);
 			Debug.Log("基地被毀滅");
+			foreach(var collider in matrixGO.transform.GetComponentsInChildren<Collider>())
+			{
+				collider.enabled=false;
+			}
+			Camera.main.GetComponent<Shake>().OnShake();
+			GameManager.gamePlay.loadEffect.LoadMatrixBoom();
+			matrixGO.transform.Find("home").GetComponent<MeshRenderer>().enabled=false;
+			matrixGO.transform.Find("MatrixRecover").gameObject.SetActive(false);
 
-
-			
 		}
 	}
 

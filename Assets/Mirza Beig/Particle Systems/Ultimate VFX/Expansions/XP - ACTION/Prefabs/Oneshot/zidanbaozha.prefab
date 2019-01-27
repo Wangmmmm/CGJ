@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 199694844924165298}
   - component: {fileID: 198347424824106874}
   m_Layer: 0
-  m_Name: pf_vfx-ult_xp-action_psys_oneshot_realisticExplosion
+  m_Name: zidanbaozha
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
