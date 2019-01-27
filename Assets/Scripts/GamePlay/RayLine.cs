@@ -79,6 +79,7 @@ namespace GamePlay
             {
                 currentEnergy -= bullet.energyConsume;
                 bullet.Destroy();
+                AudioManager.instance.PlayLineHurtFromBullet();
             }
             else{
                  currentEnergy -= (bullet.energyConsume*Time.deltaTime);
@@ -132,6 +133,10 @@ namespace GamePlay
             var lineRenderer = transform.GetComponent<LineRenderer>();
             if (currentEnergy > 0 && !player1.inMatrix && !player2.inMatrix)
             {
+                if(!lineRenderer.enabled)
+                {
+                    AudioManager.instance.PlayAddLine();
+                }
                 lineRenderer.enabled = true;
                 Vector3[] points = new Vector3[2]
                {
@@ -143,6 +148,10 @@ namespace GamePlay
             }
             else
             {
+                if(lineRenderer.enabled)
+                {
+                    AudioManager.instance.PlayRemoveLine();
+                }
                 lineRenderer.enabled = false;
             }
         }

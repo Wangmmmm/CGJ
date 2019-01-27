@@ -39,6 +39,7 @@ public class TheMatrix : IGamePlay {
 		{
 			damage=bullet.damage;
 			GameManager.gamePlay.loadEffect.LoadBulletBoom(bullet.BulletObject.transform.position);
+			AudioManager.instance.PlayMatrixHurt();
 		}
 		else{
 			damage=bullet.damage*Time.fixedDeltaTime;
@@ -67,7 +68,7 @@ public class TheMatrix : IGamePlay {
 			GameManager.gamePlay.loadEffect.LoadMatrixBoom();
 			matrixGO.transform.Find("home").GetComponent<MeshRenderer>().enabled=false;
 			matrixGO.transform.Find("MatrixRecover").gameObject.SetActive(false);
-
+			AudioManager.instance.PlayMatrixDes();
 		}
 	}
 
